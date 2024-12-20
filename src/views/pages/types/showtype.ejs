@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../../partials/head'); %>
+</head>
+
+<body class="container">
+  <header>
+    <%- include('../../partials/header'); %>
+  </header>
+  <main>
+    <div class="bg-gray-700 text-gray-400 py-12 px-6 mx-5 mt-5">
+      <div class="max-w-7xl grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Type : <%= typeOne.identifier %>
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start space-x-4">
+            <div class="bg-blue-600 p-3 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M14.25 6.087V4.5A2.25 2.25 0 0012 2.25h-1.5a2.25 2.25 0 00-2.25 2.25v1.587m9 15.163v-4.5m-3 4.5v-6m-3 6v-9M6.75 21.25v-12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">Generation ID:</h3>
+              <% if (typeOne.generation_id) { %>
+              <p class="text-white">
+                <%= typeOne.generation_id %>
+              </p>
+              <% } else { %>
+                <p class="text-white">
+                  pas de generation
+                </p>
+                <% } %>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="bg-blue-600 p-3 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5.25 12.75l1.5-1.5m3 6l1.5-1.5m-7.5-9h16.5m0 12H2.25m2.25-6h12.75M2.25 6.75l2.25-2.25m13.5 15L21.75 21" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">Damage class ID:</h3>
+              <% if (typeOne.damage_class_id) { %>
+              <p class="text-white">
+                <%= typeOne.damage_class_id %>
+              </p>
+              <% } else { %>
+                <p class="text-white">
+                  Aucun damage
+                </p>
+                <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<footer>
+  <%- include('../../partials/footer'); %>
+</footer>
+
+</html>

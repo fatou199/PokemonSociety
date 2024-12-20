@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head'); %>
+</head>
+<body class="container">
+    <header>
+        <%- include('../../partials/header'); %>
+    </header>
+    <main>
+        <div class="mt-3">
+            <div class="relative overflow-x-auto mb-5">
+              <table class="mx-auto w-[90%] text-sm text-left dark:text-gray-400">
+                <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-white bg-gray-800">
+                  Tout les types :
+                </caption>
+                  <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+                  <tr>
+                      <th scope="col" class="px-6 py-3">#</th>
+                      <th scope="col" class="px-6 py-3">Nom</th>
+                      <th scope="col" class="px-6 py-3">Generation ID</th>
+                      <th scope="col" class="px-6 py-3">Damage class ID</th>
+                      <th scope="col" class="px-6 py-3">Modification</th>
+                      <th scope="col" class="px-6 py-3">Suppression</th>
+                      <th scope="col" class="px-6 py-3">Voir plus</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% typesAll.forEach((alltype) => { %>                     
+                    <tr class="border-b bg-gray-800 border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                        <%= alltype.id %>
+                    </th>
+                      <td class="px-6 py-4"><%= alltype.identifier %></td>
+                      <td class="px-6 py-4"><%= alltype.generation_id %></td>
+
+                      <% if(alltype.damage_class_id) { %>
+                      <td class="px-6 py-4"><%= alltype.damage_class_id %></td>
+                      <% } else { %>
+                        <td class="px-6 py-4">Aucun damage </td>
+                      <% } %>
+
+                      <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-blue-600 hover:underline">Modifier</a>
+                      </td>
+                      <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-red-600 hover:underline">Supprimer</a>
+                      </td>
+                      <td class="px-6 py-4 hover:text-sky-400">
+                        <a href="/type/<%= alltype.id %>">Détail</a>
+                      </td>
+                    </tr>
+                  <% }) %>
+                  </tbody>
+              </table>
+            </div>
+        </div>
+    </main>
+</body>
+<footer>
+    <%- include('../../partials/footer'); %>
+</footer>
+</html>

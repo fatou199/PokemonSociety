@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head'); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../../partials/header'); %>
+    </header>
+    <main>
+        <a href="/pokemon/<%= moves[0].id %>" class="mt-4 ml-2 inline-flex items-center px-4 py-2 text-white bg-gray-800 hover:bg-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l-7-7 7-7"></path>
+            </svg>
+            Retour
+        </a>
+
+        <div class="w-[90%] mx-auto mt-5 bg-gray-800 border border-gray-700 rounded-lg shadow sm:p-8">
+            <div class="flex items-center justify-between mb-4">
+                <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white capitalize">
+                    <%= moves[0].nom %>
+                </h5>
+            </div>
+            <p class="text-xl text-gray-600 dark:text-white mb-3">Les mouvements:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <% moves.forEach((move) => { %>
+                <div class="bg-white border-t-2 border-gray-700 dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+                    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <li class="py-3 sm:py-4 ">
+                            <div class="flex items-center">
+                                <div class="flex-1 min-w-0 ms-4 ">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white underline capitalize">
+                                        <%= move.identifier %>
+                                    </p>
+                                    <div class="grid gap-4 grid-cols-2 mt-3">
+                                        <% if (move.generation_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Generation ID: <%= move.generation_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de generation ID
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.damage_class_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Type ID: <%= move.damage_class_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de type ID
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.power) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Power: <%= move.power %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de power
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.pp) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                PP: <%= move.pp %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de PP
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.accuracy) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Accuracy: <%= move.accuracy %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas d'accuracy
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.priority) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Priority: <%= move.priority %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de priority
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.target_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Target ID: <%= move.target_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de target ID
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.damage_class_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Damage class ID: <%= move.damage_class_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de damage class ID
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.effect_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Effect ID: <%= move.effect_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas d'effect ID
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.effect_chance) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Effect chance: <%= move.effect_chance %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas d'effect chance
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.contest_type_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Contest type ID: <%= move.contest_type_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de contest type ID
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.contest_effect_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Contest effect ID: <%= move.contest_effect_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de contest effect ID
+                                            </p>
+                                        <% } %>
+            
+                                        <% if (move.super_contest_effect_id) { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Super contest effect ID: <%= move.super_contest_effect_id %>
+                                            </p>
+                                        <% } else { %>
+                                            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                Pas de super contest effect ID
+                                            </p>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            <% }) %>
+            </div>
+        </div>
+    </main>
+</body>
+<footer>
+    <%- include('../../partials/footer'); %>
+</footer>
+
+</html>
